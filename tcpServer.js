@@ -7,5 +7,5 @@ const server = net.createServer((socket) => {
 });
 
 server.listen(3099, "127.0.0.1", () => {
-  console.log('Server running at', server.address());
+  console.log("Server is listening");
 });
