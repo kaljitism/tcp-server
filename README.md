@@ -8,15 +8,19 @@
 - We can define the on "data", "end", "error", etc. events on it, whenever something is written in the internal write buffer - 
 A packet is sent through the socket carrying that buffer as data.
 - Once a server with a connectionListener is created - We call the listen method, which is basically an endless loop in which your node.js TCP server is constantly listening.
-- We define a hostName(IP Address) and a Port number on which the server listens.
+- We define a hostName(IP Address) and a Port number on which the server listens. In this case we define a default 
+LoopBack IP Address - 127.0.0.1* 
 - Running the listening method basically means running your server on hostName:PORT, and now it can talk to the world!
+
+* All routes, switches, devices know that 127.0.0.1 is the LoopBack IP address. What it means that any traffic which is 
+coming from 127.0.0.1 os looped back to 127.0.0.1. Its also known as the infamous `localHost`.`
 
 ## Socket Connection
 
 - A simple sender/ Socket is a Subclass of Duplex Stream, which is connecting to that same host and port. 
 - The createConnection method of net module returns a Socket that inherits from Duplex Stream. 
 - It returns us a Socket Connection which has a stream to pass data through and an endpoint. 
-- First parameter in `net.createConnection` is options in which we can define hostName and PORT to create a connection to. 
+- First parameter in `net.createConnection` is options in which we can define hostName(LoopBack Address in this case) and PORT to create a connection to. 
 - Second parameter is `connectionListener` which access the top level socket connection and can write buffers to it. 
 - We create a buffer and write it to the socket. 
 
